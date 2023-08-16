@@ -1,0 +1,6 @@
+
+Django==4.2.2
+Pillow==9.5.0
+djangorestframework==3.14.0
+environs == 8.0.0
+psycopg2==2.9.7

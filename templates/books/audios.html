@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <section>
+
+
+        <div style="text-align: center;">
+            <strong><em> </em></strong><br>
+        </div>
+        <div id="player" style="text-align: center;">
+            <img src="{{ book_.book_img.url }}" alt="Your Image"
+                style="max-width: 200px; height: auto; border-radius: 10%;">
+            <br>
+            <br>
+            <div style="text-align: center;">
+                <h3 class="product-single__title" itemprop="name">
+
+                    {{ book_.book_name }} 
+                </h3>
+            </div>
+
+            <br>
+            {% for audio in audios %}
+    <div style="text-align: center;">
+        <h3> {{ forloop.counter }}  qism </h3>
+    </div>
+    <br>
+    <audio controls="controls">
+        <source src="{{ audio.audio_file.url }}" type="audio/mpeg">
+    </audio>
+    
+{% endfor %}
+
+        </div>
+        
+    </section>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        section {
+
+            background: rgba(0, 0, 0, .65) url('https://pravitelstvo.kbr.ru/upload/iblock/e7e/j10yxw73dbfv82rxvjxmegp7390ywcf1/privately.ru_podborka_shikarnyh_audioknig_v_kotorye_nyrjaesh_s_golovoj_audiozapis_charlz_1.jpg') no-repeat center / cover;
+            background-blend-mode: darken;
+            height: 100vh;
+        }
+
+        .product-single__title {
+            color: white;
+        }
+        h3 {
+            color:  white;
+        }
+    </style>
+</body>
+
+</html>

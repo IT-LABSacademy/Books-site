@@ -1,0 +1,281 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html dir="ltr" lang="uz">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Tell the bjadvalser to be responsive to screen width -->
+         <!-- Facebook Open Graph Tags -->
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Audio Kitob">
+    <meta property="og:title" content="Audio Kitob"/>
+    <meta property="og:image" content="http://tizim.nammqi.uz/audio-kitob/rasm/audiokitob.jpg">
+    <meta property="og:image:width" content="450" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:description" content="Barcha turdagi badiiy, ilmiy, darsliklardan tashkil topgan audio kitoblar muajassam."/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Twitter Cards -->
+    <meta property="twitter:title" content="Audio Kitob" />
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:description" content="Barcha turdagi badiiy, ilmiy, darsliklardan tashkil topgan audio kitoblar muajassam. " />
+    <meta property="twitter:image" content="http://tizim.nammqi.uz/audio-kitob/rasm/audiokitob.jpg" />
+    <meta property="twitter:image:width" content="450" />
+    <meta property="twitter:image:height" content="800" />
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="nammqi, Audio Kitob, kutubxona , audio kutubxona, namangan, muhandislik, qurilish, наманган, намиси, инженерно, строительный, институт, nameci, engineering, construction, institute" />
+    <meta name="description" content="Audio Kitob http://tizim.nammqi.uz/ https://t.me/nammqi_uz https://facebook.com/nammqirasmiy.uz https://ok.ru/profile/579214763497 https://vk.com/id551611414 https://twitter.com/NamanganMuhand1 https://www.instagram.com/nammqi.uz/" />
+    
+        <!-- Favicon icon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="../kutubxona/images/favicon.png">
+        <title>Audio Kitoblar</title>
+        <!-- Custom CSS -->
+        <link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">    
+        <link href="{% static 'css/books.css' %}" rel="stylesheet">
+        
+</head>
+<body>
+
+<div class="preloader" style="display: none;">
+    <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+    </div>
+</div>
+
+<div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="overlay" data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <div class="navbar-header border-right" data-logobg="skin6">
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="fas fa-times"></i></a>
+                    <a class="navbar-brand" href="index.php">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="http://tizim.nammqi.uz/kutubxona/images/favicon.png" alt="homepage" class="dark-logo" width="36">
+                            <!-- Light Logo icon -->
+                            <h4 alt="homepage" class="light-logo"></h4>
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span class="logo-text">
+                             <!-- dark Logo text -->
+                             <img src="http://tizim.nammqi.uz/kutubxona/images/logos/logo-text-audio-kitob.png" alt="homepage" class="dark-logo">
+                             <!-- Light Logo text -->    
+                             <img src="http://tizim.nammqi.uz/kutubxona/images/logos/logo-light-text-audio-kitob.png" class="light-logo" alt="homepage">
+                        </span>
+                    </a>
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                </div>
+
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin6">
+                    <ul class="navbar-nav float-left mr-auto">
+                        <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar">
+                            <i class="fas fa-bars"></i>
+                        </a>
+                    </li>
+
+                    </ul>
+                    
+                    <ul class="navbar-nav float-right">
+                        <li class="nav-item search-box">
+                            <form class="app-search d-lg-block" method="POST" action="qidiruv.php">
+                                <input type="text" class="form-control" name="qidiruv" placeholder="Qidiruv...">
+                                <a class="active"><i class="fa fa-search"></i></a>
+                            </form>
+                        </li>
+                        {% comment %} Auth user {% endcomment %}
+                        {% if user.is_authenticated %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'logout' %}">
+                                <!-- <span class="fas fa-home ml-2"></span><span class="ml-2 font-medium"> Bosh sahifa</span> -->
+                                <span class="fas fa-sign-out-alt"></span><span class="ml-2 font-medium"> Chiqish</span>
+                            </a>    
+                        </li> 
+                        {% else %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'login' %}">
+                                <!-- <span class="fas fa-home ml-2"></span><span class="ml-2 font-medium"> Bosh sahifa</span> -->
+                                <span class="fas fa-user-circle"></span><span class="ml-2 font-medium"> Kirish</span>
+                            </a>    
+                        </li> 
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'register' %}">
+                                <!-- <span class="fas fa-home ml-2"></span><span class="ml-2 font-medium"> Bosh sahifa</span> -->
+                                <span class="fas fa-sign-in-alt"></span><span class="ml-2 font-medium"> Ro'yxatdan o'tish</span>
+                            </a>    
+                        </li> 
+                        {% endif %}
+                        
+                            
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="left-sidebar" data-sidebarbg="skin5">
+            <div class="scroll-sidebar ps-container ps-theme-default ps-active-y" data-ps-id="910cf97f-e612-bf51-295d-6e8e301ae1f6">
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        {% comment %} Auht user {% endcomment %}
+                        
+                        {% if user.is_authenticated %}
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link waves-effect waves-dark sidebar-link sidebar-link profile-dd" href="javascript:void(0)" aria-expanded="false">
+                                <img src="http://tizim.nammqi.uz/kutubxona/images/users/foydalanuvchi.png" class="rounded-circle ml-2" width="50">
+                                <span class="hide-menu">{{ user }}</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link waves-effect waves-dark sidebar-link sidebar-link" href="" aria-expanded="false">
+                                <i class="fas fa-book"></i>
+                                <span class="hide-menu">Kitob qo'shish</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link waves-effect waves-dark sidebar-link sidebar-link" href="" aria-expanded="false">
+                                <i class="fas fa-address-book"></i>
+                                <span class="hide-menu">Mening kitoblarim</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link waves-effect waves-dark sidebar-link sidebar-link profile-dd" href="javascript:void(0)" aria-expanded="false">
+                                <img src="http://tizim.nammqi.uz/kutubxona/images/users/foydalanuvchi.png" class="rounded-circle ml-2" width="50">
+                                <span class="hide-menu">Mehmon</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link waves-effect waves-dark sidebar-link sidebar-link" href="{% url 'register' %}" aria-expanded="false">
+                                <i class="fas fa-book"></i>
+                                <span class="hide-menu">Kitob qo'shish</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        <li class="sidebar-item">
+                            <a class="sidebar-link sidebar-link waves-effect waves-dark sidebar-link sidebar-link" href="{% url 'home' %}" aria-expanded="false">
+                                <i class="fas fa-home"></i>
+                                <span class="hide-menu">Bosh sahifa</span>
+                            </a>
+                        </li>
+                        {% for category in categories %}
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false"><i class="{{ category.icon }}"></i><span class="hide-menu">{{ category.name }}</span></a>
+                        </li>   
+                        {% endfor %}                     
+                        
+                        
+                                               
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 303px; right: 3px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 261px;"></div></div></div>
+            <!-- End Sidebar scroll-->
+        </aside>
+<div class="page-wrapper" style="display: block;">
+    
+     <div class="page-breadcrumb border-bottom">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-xs-12 align-self-center">
+                                <h5 class="font-medium text-uppercase mb-0">{{ cate_name }}</h5>
+            </div>
+            <div class="col-lg-9 col-md-8 col-xs-12 align-self-center">
+                <nav aria-label="breadcrumb" class="mt-2 float-md-right float-left">
+                    <ol class="breadcrumb mb-0 justify-content-end p-0">
+                                                <li class="breadcrumb-item active" aria-current="page">Audio Kitoblar</li>                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+  <br>
+<div class="page-content container-fluid">                                    
+                <div id="sahifa" class="row el-element-overlay">
+                    {% for book in by_categories %}           
+<div class="col-lg-3 col-md-9">
+    
+        <div class="card card-hover">
+            <div class="el-card-item">
+                <div class="el-card-avatar el-overlay-1"> <img src=" {{ book.book_img.url }}" style="height: 400px;" alt="user">
+                    <div class="el-overlay">
+                        <ul class="list-style-none el-info">
+                            
+                            <li class="el-item"><a class="btn default btn-outline el-link" href=""><i class="far fa-eye"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex no-block align-items-justify">
+                    <div class="ml-3">
+                        <a href=""><h4 class="mb-0" style="height: 40px; overflow: hidden;"><i class="fas fa-book"></i>
+                            {{ book.book_name }}                         </h4></a>
+                        <h5 class="text-muted h5"><i class="fas fa-address-book"></i>
+                            {{ book.book_the_author }}                     </h5>
+                        <h5 class="text-muted h5"><i class="far fa-folder-open"></i>
+                            {{ book.book_genre }}                         </h5>
+                        <h5 class="text-muted h5"><i class="fas fa-database"></i>
+                            7 ta qism
+                        </h5>
+                        <span class="text-muted h4" style="margin-left: 20px;">
+                            <i style="color: yellow;" class="fas fa-star"></i>
+                            <i style="color: yellow;" class="fas fa-star"></i>
+                            <i style="color: yellow;" class="fas fa-star"></i>
+                            <i style="color: yellow;" class="fas fa-star"></i>
+                            <i style="color: yellow;" class="fas fa-star"></i>
+
+                            </span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>                    
+    {% endfor %}
+                    
+</div>
+                <div id="yuklash" align="center" style="display: none;">
+                    <span class="text-info">
+                        <span class="spinner-grow spinner-grow-md text-primary" role="status" aria-hidden="true"></span>
+                        <span class="spinner-grow spinner-grow-md text-danger" role="status" aria-hidden="true"></span>
+                        <span class="spinner-grow spinner-grow-md text-info" role="status" aria-hidden="true"></span>
+                        <span class="spinner-grow spinner-grow-md text-warning" role="status" aria-hidden="true"></span>
+                    </span>
+                </div>
+             </div>
+        
+ 
+
+  </div>
+</div>
+                                                      
+    <div class="chat-windows"></div>                                                                           
+    
+    <script src="{% static 'libs/jquery/dist/jquery.min.js' %}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{% static 'libs/popper.js/dist/umd/popper.min.js' %}"></script>
+    
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- apps -->
+    <script src="{% static 'js/app.min.js' %}"></script>
+    <script src="{% static 'js/app.init.js' %}"></script>
+    <script src="{% static 'js/app-style-switcher.js' %}"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="{% static 'libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js' %}"></script>
+    <script src="{% static 'extra-libs/sparkline/sparkline.js' %}"></script>
+    <!--Wave Effects -->
+    <script src="{% static 'js/waves.js' %}"></script>
+    <!--Menu sidebar -->
+    <script src="{% static 'js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'js/custom.min.js' %}"></script>
+    <!-- This Page JS -->
+    <script src="{% static 'libs/magnific-popup/dist/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'libs/magnific-popup/meg.init.js' %}"></script>  
+   
+</body>
+    </html>
